@@ -1,13 +1,4 @@
 @file:Suppress("UnstableApiUsage")
-
-include(":feature:settings")
-
-
-include(":core:common")
-
-
-include(":baselineprofile")
-
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
   includeBuild("build-logic")
@@ -104,6 +95,10 @@ include(":core:test")
 include(":core:navigation")
 include(":core:designsystem")
 include(":core:preview")
+include(":core:common")
 
 include(":feature:home")
 include(":feature:details")
+include(":feature:settings")
+
+include(":baselineprofile")
