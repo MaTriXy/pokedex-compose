@@ -1,4 +1,4 @@
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.LibraryExtension
 import com.skydoves.pokedex.compose.configureAndroidCompose
 import com.skydoves.pokedex.compose.configureKotlinAndroid
 import org.gradle.api.Plugin
@@ -13,7 +13,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
     with(target) {
       pluginManager.apply {
         apply("com.android.library")
-        apply("org.jetbrains.kotlin.android")
       }
 
       dependencies {
@@ -27,7 +26,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
       extensions.configure<LibraryExtension> {
         configureKotlinAndroid(this)
         configureAndroidCompose(this)
-        defaultConfig.targetSdk = 36
       }
 
       extensions.getByType<KotlinAndroidProjectExtension>().apply {

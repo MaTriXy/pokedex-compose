@@ -1,7 +1,5 @@
 plugins {
   alias(libs.plugins.android.test)
-  alias(libs.plugins.kotlin.android)
-  alias(libs.plugins.compose.compiler)
   alias(libs.plugins.baselineprofile)
   id("skydoves.pokedex.spotless")
 }
@@ -23,8 +21,8 @@ android {
 
   targetProjectPath = ":app"
 
-  testOptions.managedDevices.devices {
-    maybeCreate<com.android.build.api.dsl.ManagedVirtualDevice>("pixel6api31").apply {
+  testOptions.managedDevices.localDevices {
+    maybeCreate("pixel6api31").apply {
       device = "Pixel 6"
       apiLevel = 31
       systemImageSource = "aosp"

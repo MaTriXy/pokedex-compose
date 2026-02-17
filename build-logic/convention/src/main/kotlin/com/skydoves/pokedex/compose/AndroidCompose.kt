@@ -10,15 +10,11 @@ import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginE
  * Configure Compose-specific options
  */
 internal fun Project.configureAndroidCompose(
-  commonExtension: CommonExtension<*, *, *, *, *, *>,
+  commonExtension: CommonExtension,
 ) {
   pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
 
-  commonExtension.apply {
-    buildFeatures {
-      compose = true
-    }
-  }
+  commonExtension.buildFeatures.compose = true
 
   extensions.configure<ComposeCompilerGradlePluginExtension> {
     reportsDestination = layout.buildDirectory.dir("compose_compiler")

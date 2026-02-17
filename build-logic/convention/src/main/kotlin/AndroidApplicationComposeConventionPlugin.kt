@@ -1,4 +1,4 @@
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import com.android.build.api.dsl.ApplicationExtension
 import com.skydoves.pokedex.compose.configureAndroidCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -9,7 +9,7 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
     with(target) {
       pluginManager.apply("com.android.application")
       pluginManager.apply("com.github.skydoves.compose.stability.analyzer")
-      val extension = extensions.getByType<BaseAppModuleExtension>()
+      val extension = extensions.getByType<ApplicationExtension>()
       configureAndroidCompose(extension)
     }
   }

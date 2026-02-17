@@ -10,23 +10,19 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
  * Configure base Kotlin with Android options
  */
 internal fun Project.configureKotlinAndroid(
-  commonExtension: CommonExtension<*, *, *, *, *, *>,
+  commonExtension: CommonExtension,
 ) {
   commonExtension.apply {
     compileSdk = 36
 
-    defaultConfig {
-      minSdk = 23
-    }
+    defaultConfig.minSdk = 23
 
-    compileOptions {
+    compileOptions.apply {
       sourceCompatibility = JavaVersion.VERSION_17
       targetCompatibility = JavaVersion.VERSION_17
     }
 
-    lint {
-      abortOnError = false
-    }
+    lint.abortOnError = false
   }
 }
 
